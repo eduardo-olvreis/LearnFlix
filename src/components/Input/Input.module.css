@@ -1,0 +1,40 @@
+.inputContainer {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0993eb;
+  box-shadow: 0 0 0 3px rgba(9, 147, 235, 0.1);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+  .input {
+    padding: 14px 16px;
+  }
+}
