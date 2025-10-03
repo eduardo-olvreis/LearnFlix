@@ -16,8 +16,16 @@ function App() {
     <div className="App">
       {page === "aluno" && (<Aluno name="Eduardo" user="Aluno"/>)}
       {page === "professor" && (<Professor name="Ermelindo" user="Professor"/>)}
+  const [currentPage, setCurrentPage] = useState("register");
+  return (
+    <div className="App">
+      {currentPage === "Register" ? (
+        <Login onNavigateToRegister={() => setCurrentPage("register")} />
+      ) : (
+        <Register onNavigateToLogin={() => setCurrentPage("login")} />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
