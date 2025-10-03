@@ -35,16 +35,18 @@
 }
 
 .menu{
-    position: absolute;
+    position: fixed;
     top: 15svh;
     left: 0;
     height: 85svh;
-    width: 100vw;
+    width: 100%;
     background-color: rgb(99, 151, 204);
     color: white;
     opacity: 0;
+    visibility: hidden;
     transform: translateX(100%);
     transition: all ease-in-out 0.3s;
+    z-index: 10;
 
     & li{
         display: flex;
@@ -58,5 +60,6 @@
 
 .menu.visible{
     opacity: 1;
+    visibility: visible;
     transform: translateX(0);
 }
