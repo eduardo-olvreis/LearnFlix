@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15svh;
+    width: 100%;
+    background-color: #0051a0;
+    color: white;
+    padding: 5%;
+
+    & img{
+        width: 2.5rem;
+        cursor: pointer;
+    }
+}
+
+.info{
+    font-weight: lighter;
+
+    & span{
+        font-weight: 800;
+    }
+}
