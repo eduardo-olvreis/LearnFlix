@@ -20,7 +20,7 @@ function Register({ onNavigateToLogin }) {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -32,32 +32,28 @@ function Register({ onNavigateToLogin }) {
     }
 
     try {
-      const response = await fetch("http://localhost:5173/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];  /* Vai pegar todos os usuários cadastrados no localStorage */
+      const exists = storedUsers.some((u) => u.email === formData.email);  /* Verificação de email duplicado */
 
-      if (response.ok) {
-        alert("Registro bem-sucedido! Você pode fazer login agora.");
-        onNavigateToLogin();
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || "Ocorreu um erro ao registrar.");
+      if (exists) {
+        setError("Esse email já está cadastrado.");
+        setLoading(false);
+        return;
       }
-    } catch {
-      setError(
-        "Não foi possível conectar ao servidor. Tente novamente mais tarde."
-      );
+
+      const updatedUsers = [...storedUsers, formData];  /* Array com os usuários antigos e o novo */
+      localStorage.setItem("users", JSON.stringify(updatedUsers));  
+      onNavigateToLogin();
+
+    } catch (error) {
+      setError("Erro ao salvar usuário. Tente novamente.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <Card>
         <div className={styles.header}>
           <div className={styles.logo}>Logo</div>
@@ -100,7 +96,7 @@ function Register({ onNavigateToLogin }) {
           </span>
         </div>
       </Card>
-    </div>
+    </section>
   );
 }
 
