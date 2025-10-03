@@ -7,11 +7,7 @@
     background-color: #0051a0;
     color: white;
     padding: 5%;
-
-    & img{
-        width: 2.5rem;
-        cursor: pointer;
-    }
+    position: relative;
 }
 
 .info{
@@ -20,4 +16,47 @@
     & span{
         font-weight: 800;
     }
+}
+
+.botaoMenu{
+
+    & button{
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0051a0;
+    }
+
+    & img{
+        width: 2.5rem;
+        cursor: pointer;
+    }
+}
+
+.menu{
+    position: absolute;
+    top: 15svh;
+    left: 0;
+    height: 85svh;
+    width: 100vw;
+    background-color: rgb(99, 151, 204);
+    color: white;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all ease-in-out 0.3s;
+
+    & li{
+        display: flex;
+    }
+
+    & p{
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+}
+
+.menu.visible{
+    opacity: 1;
+    transform: translateX(0);
 }

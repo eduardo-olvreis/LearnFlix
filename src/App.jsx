@@ -16,9 +16,11 @@ function App() {
       {/* Parametro onNavigateToGestor é apenas provisório para testes, no futuro será implementado a troca de página de acordo com que cargo cada usuário ocupa */}
       {currentPage === "login" && (<Login onNavigateToRegister={() => setCurrentPage("register")} onNavigateToGestor={() => setCurrentPage("gestor")}/>) }
       {currentPage === "register" && (<Register onNavigateToLogin={() => setCurrentPage("login")} />)}
-      {currentPage === "aluno" && (<Aluno name="Eduardo" user="Aluno"/>)}
-      {currentPage === "professor" && (<Professor name="Ermelindo" user="Professor"/>)}
-      {currentPage === "gestor" && (<Gestor name="Claudio" user="Gestor"/>)}
+
+      {/* Os nomes e usuarios também estão apenas provisóriamente, no futuro será implementado o nome e cargo aautomaticamente de acordo com o login do usuário */}
+      {currentPage === "aluno" && (<Aluno name="Eduardo" user="Aluno" onNavigateToLogin={() => setCurrentPage("login")}/>)}
+      {currentPage === "professor" && (<Professor name="Ermelindo" user="Professor" onNavigateToLogin={() => setCurrentPage("login")}/>)}
+      {currentPage === "gestor" && (<Gestor name="Claudio" user="Gestor" onNavigateToLogin={() => setCurrentPage("login")}/>)}
     </div>
   );
 }
