@@ -1,29 +1,25 @@
 import { useState } from 'react'
 
+import Register from './pages/auth/register/Register'
+
 import Aluno from "./pages/Dashboards/Aluno/Aluno"
 import Professor from "./pages/Dashboards/Professor/Professor"
 import Gestor from './pages/Dashboards/Gestor/Gestor'
 
 function App() {
 
-  const [page, setPage] = useState("aluno")
-
-  const handlePage = () =>{
-    setPage("")
-  }
-
-  return (
-    <div className="App">
-      {page === "aluno" && (<Aluno name="Eduardo" user="Aluno"/>)}
-      {page === "professor" && (<Professor name="Ermelindo" user="Professor"/>)}
   const [currentPage, setCurrentPage] = useState("register");
+
   return (
     <div className="App">
-      {currentPage === "Register" ? (
+      {currentPage !== "register" ? (
         <Login onNavigateToRegister={() => setCurrentPage("register")} />
       ) : (
         <Register onNavigateToLogin={() => setCurrentPage("login")} />
       )}
+
+      {currentPage === "aluno" && (<Aluno name="Eduardo" user="Aluno"/>)}
+      {currentPage === "professor" && (<Professor name="Ermelindo" user="Professor"/>)}
     </div>
   );
 }
