@@ -4,6 +4,8 @@ import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 import styles from "./Register.module.css";
 
+import LearnFlixLogo from "../../../assets/images/Learnflix-logo.png";
+
 function Register({ onNavigateToLogin }) {
   const [formData, setFormData] = useState({
     email: "",
@@ -32,8 +34,12 @@ function Register({ onNavigateToLogin }) {
     }
 
     try {
-      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];  /* Vai pegar todos os usuários cadastrados no localStorage */
-      const exists = storedUsers.some((u) => u.email === formData.email);  /* Verificação de email duplicado */
+      const storedUsers =
+        JSON.parse(localStorage.getItem("users")) ||
+        []; /* Vai pegar todos os usuários cadastrados no localStorage */
+      const exists = storedUsers.some(
+        (u) => u.email === formData.email
+      ); /* Verificação de email duplicado */
 
       if (exists) {
         setError("Esse email já está cadastrado.");
@@ -41,11 +47,13 @@ function Register({ onNavigateToLogin }) {
         return;
       }
 
-      const updatedUsers = [...storedUsers, formData];  /* Array com os usuários antigos e o novo */
-      localStorage.setItem("users", JSON.stringify(updatedUsers));  
+      const updatedUsers = [
+        ...storedUsers,
+        formData,
+      ]; /* Array com os usuários antigos e o novo */
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
       onNavigateToLogin();
-
-    } catch (error) {
+    } catch {
       setError("Erro ao salvar usuário. Tente novamente.");
     } finally {
       setLoading(false);
@@ -56,11 +64,13 @@ function Register({ onNavigateToLogin }) {
     <section className={styles.container}>
       <Card>
         <div className={styles.header}>
-          <div className={styles.logo}>Logo</div>
-          <h1 className={styles.title}>LearnFlix</h1>
-          <p className={styles.subtitle}>
-            O gerenciamento educacional a um clique de distância!
-          </p>
+          <img
+            src={LearnFlixLogo}
+            alt="Logo LearnFlix"
+            className={styles.logo}
+          />
+          <h1 className={styles.title}>Junte-se ao LearnFlix</h1>
+          <p className={styles.subtitle}>Ensinar, Conectar</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -82,7 +92,7 @@ function Register({ onNavigateToLogin }) {
             onChange={handleChange}
           />
 
-          {error && <div className={styles.errorMessage}>{error}</div>}
+          {error && <div className={styles.error}>{error}</div>}
 
           <Button type="submit" disabled={loading}>
             {loading ? "Criando Conta..." : "Criar Conta"}
@@ -90,7 +100,7 @@ function Register({ onNavigateToLogin }) {
         </form>
 
         <div className={styles.footer}>
-          Já tem uma conta?{" "}
+          Já tem cadastro?{" "}
           <span className={styles.link} onClick={onNavigateToLogin}>
             Fazer login
           </span>
