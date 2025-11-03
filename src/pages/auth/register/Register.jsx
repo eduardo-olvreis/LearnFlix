@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Card from "../../../components/Card/Card";
 import Input from "../../../components/Input/Input";
@@ -14,6 +15,8 @@ function Register({ onNavigateToLogin }) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -52,7 +55,7 @@ function Register({ onNavigateToLogin }) {
         formData,
       ]; /* Array com os usuários antigos e o novo */
       localStorage.setItem("users", JSON.stringify(updatedUsers));
-      onNavigateToLogin();
+      navigate("/");
     } catch {
       setError("Erro ao salvar usuário. Tente novamente.");
     } finally {
@@ -101,7 +104,7 @@ function Register({ onNavigateToLogin }) {
 
         <div className={styles.footer}>
           Já tem cadastro?{" "}
-          <span className={styles.link} onClick={onNavigateToLogin}>
+          <span className={styles.link} onClick={() => navigate("/")}>
             Fazer login
           </span>
         </div>

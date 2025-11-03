@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 import Card from "../../../components/Card/Card";
 import Input from "../../../components/Input/Input";
@@ -14,6 +16,8 @@ function Login({ onNavigateToRegister, onNavigateToGestor }) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -44,7 +48,15 @@ function Login({ onNavigateToRegister, onNavigateToGestor }) {
 
       if (userFound) {
         console.log("Login realizado com sucesso!", userFound.email);
-        onNavigateToGestor(userFound);
+
+        if(userFound.role === "Gestor"){
+          navigate("/gestor")
+        } else if(userFound.role === "Professor"){
+          navigate("/professor")
+        } else{
+          navigate("/aluno")
+        }
+
       } else {
         setError("Email ou senha incorretos.");
       }
@@ -97,7 +109,7 @@ function Login({ onNavigateToRegister, onNavigateToGestor }) {
 
         <div className={styles.footer}>
           novo por aqui?{" "}
-          <span className={styles.link} onClick={onNavigateToRegister}>
+          <span className={styles.link} onClick={() => navigate("/register")}>
             Registrar
           </span>
         </div>
