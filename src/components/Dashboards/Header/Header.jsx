@@ -1,12 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react"
 import style from "./Header.module.css"
 
 export default function Header({name, user, onNavigateToLogin}){
 
     const [visible, setVisible] = useState(false)
+    const navigate = useNavigate();
 
     const handleClick = () => {
         setVisible(!visible)
+    }
+
+    const handleLogout = () => {
+        navigate("/")
     }
 
     return(
@@ -24,7 +30,7 @@ export default function Header({name, user, onNavigateToLogin}){
             </div>
             <div className={`${style.menu} ${visible ? style.visible : ''}`}>
                 <ul>
-                    <li><p onClick={onNavigateToLogin}>Sair</p></li>
+                    <li><p onClick={handleLogout}>Sair</p></li>
                 </ul>
             </div>
         </header>
