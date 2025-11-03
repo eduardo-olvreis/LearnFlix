@@ -8,7 +8,7 @@ import styles from "./Login.module.css";
 
 import LearnFlixLogo from "../../../assets/images/Learnflix-logo.png";
 
-function Login({ onNavigateToRegister, onNavigateToGestor }) {
+function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
