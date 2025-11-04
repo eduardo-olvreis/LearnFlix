@@ -6,7 +6,6 @@ import Button from "../../../components/Button/Button";
 import styles from "./Register.module.css";
 
 import LearnFlixLogo from "../../../assets/images/Learnflix-logo.png";
-import Gestor from "../../Dashboards/Gestor/Gestor";
 
 function Register() {
   const [formData, setFormData] = useState({
