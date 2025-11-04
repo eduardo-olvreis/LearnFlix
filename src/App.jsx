@@ -13,8 +13,14 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />} />
-        <Route path="/professor" element={<Professor name="Ermelindo" user="Professor" />} />
-        <Route path="/gestor" element={<Gestor name="Claudio" user="Gestor" />} />
+        <Route
+          path="/professor"
+          element={<Professor name="Ermelindo" user="Professor" />}
+        />
+        <Route
+          path="/gestor"
+          element={<Gestor name="Claudio" user="Gestor" />}
+        />
       </Routes>
     </Router>
   );
