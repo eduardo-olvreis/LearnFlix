@@ -50,7 +50,7 @@ function Login() {
         console.log("Login realizado com sucesso!", userFound.email);
 
         if(userFound.role === "Gestor"){
-          navigate("/gestor")
+          navigate("/gestor", {state: {user: userFound}})
         } else if(userFound.role === "Professor"){
           navigate("/professor")
         } else{
