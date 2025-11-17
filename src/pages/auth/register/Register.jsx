@@ -10,6 +10,7 @@ import LearnFlixLogo from "../../../assets/images/Learnflix-logo.png";
 function Register() {
   const [formData, setFormData] = useState({
     role: "Gestor",
+    name: "",
     email: "",
     password: "",
   });
@@ -31,7 +32,7 @@ function Register() {
     setLoading(true);
     setError(null);
 
-    if (!formData.email || !formData.password) {
+    if (!formData.name || !formData.email || !formData.password) {
       setError("Por favor, preencha todos os campos.");
       setLoading(false);
       return;
@@ -78,6 +79,15 @@ function Register() {
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
+          <Input
+            label="Nome"
+            type="text"
+            name="name"
+            placeholder="Seu nome"
+            value={formData.name}
+            onChange={handleChange}
+          />
+
           <Input
             label="Email"
             type="email"
