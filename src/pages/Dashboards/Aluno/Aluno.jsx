@@ -14,6 +14,11 @@ export default function Aluno({ name, user }) {
     navigate("/");
   };
 
+  {/* Função provisória para alterar entre páginas */}
+  const handleGestor = () => {
+    navigate("/gestor")
+  }
+
   return (
     <section>
       <Header
@@ -25,6 +30,7 @@ export default function Aluno({ name, user }) {
       <main>
         <Outlet />
       </main>
+      <button onClick={handleGestor}>Área do Gestor - Provisório</button>
     </section>
   );
 }
