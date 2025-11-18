@@ -16,7 +16,11 @@ function ListaRecursos() {
           throw new Error(`Erro na requisição: ${response.status}`);
         }
         const data = await response.json();
-        setRecursos(data);
+        if (Array.isArray(data)) {
+          setRecursos(data);
+        } else {
+          throw new Error("Formato de dados inesperado da API.");
+        }
       } catch (error) {
         console.error("Falha ao buscar recursos:", error);
         setError(error.message);
@@ -36,7 +40,7 @@ function ListaRecursos() {
     return <div className={styles.errorMessage}>Erro: {error}</div>;
   }
 
-  if (recursos.length === 0) {
+  if (!recursos || recursos.length === 0) {
     return <div>Nenhum recurso encontrado.</div>;
   }
 
@@ -45,19 +49,28 @@ function ListaRecursos() {
       <h1>Recursos de Programação ({recursos.length})</h1>
       <ul className={styles.recursosLista}>
         {recursos.map((recurso) => (
-          <li key={recurso.id} className={styles.recursoItem}>
-            <h3>{recurso.description}</h3>
+          <li key={recurso.id || recurso.title} className={styles.recursoItem}>
+            <h3>{recurso.title || recurso.description}</h3>
+
+            <p>{recurso.description}</p>
+
             <p>
               <strong>Tipo:</strong> {recurso.types && recurso.types.join(", ")}
             </p>
-            {recurso.tags && recurso.tags.length > 0 && (
-              <p>
-                <strong>Tags:</strong> {recurso.tags.join(", ")}
-              </p>
-            )}
+
+            {recurso.tags &&
+              Array.isArray(recurso.tags) &&
+              recurso.tags.length > 0 && (
+                <p>
+                  <strong>Tags:</strong> {recurso.tags.join(", ")}
+                </p>
+              )}
+
             <a
               href={recurso.url}
               className={styles.resourceLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Acessar Recurso
             </a>
