@@ -1,6 +1,8 @@
 .container{
-    border: 1px red solid;
+    padding: 5%;
+    gap: 25px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

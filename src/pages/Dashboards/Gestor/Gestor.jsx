@@ -1,6 +1,7 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import Header from "../../../components/Dashboards/Header/Header";
-import ListaRecursos from "../../../components/Dashboards/ListaRecursos/ListaRecursos";
+import GestorHome from "./Home/GestorHome";
+import UserRegistration from "./UserRegistration/UserRegistration";
 
 export default function Gestor() {
   const navigate = useNavigate();
@@ -11,8 +12,9 @@ export default function Gestor() {
   return (
     <section>
       <Header name={userName} user={"Gestor"} onLogout={() => navigate("/")}></Header>
-      <h3>Tela Gestor</h3>
-      <ListaRecursos />
+      <main>
+        <Outlet />
+      </main>
     </section>
   );
 }
