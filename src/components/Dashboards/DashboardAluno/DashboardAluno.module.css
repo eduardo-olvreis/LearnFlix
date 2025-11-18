@@ -1,0 +1,54 @@
+/* --- (MOBILE) --- */
+.container {
+  padding: 20px;
+  background-color: #f4f4f7;
+  min-height: 80vh;
+}
+
+.container h1 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.card {
+  padding: 18px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  color: #007bff;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 2em;
+  font-weight: 700;
+  color: #28a745;
+}
+
+/* --- (DESKTOP/TABLET) --- */
+@media (min-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .score {
+    font-size: 2.5em;
+  }
+}
