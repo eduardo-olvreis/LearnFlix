@@ -11,10 +11,6 @@ const alunoNavLinks = [
 export default function Aluno({ name, user }) {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate("/");
-  };
-
   {/* Função provisória para alterar entre páginas */}
   const handleGestor = () => {
     navigate("/gestor")
