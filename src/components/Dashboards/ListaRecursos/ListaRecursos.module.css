@@ -1,68 +1,40 @@
+/* --- (MOBILE) --- */
 .listaContainer {
   padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-
-.listaContainer h1 {
-  color: #333;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.loadingMessage {
-  text-align: center;
-  padding: 20px;
-  font-size: 1.2em;
-  color: #007bff;
-}
-
-.errorMessage {
-  text-align: center;
-  padding: 20px;
-  font-size: 1.2em;
-  color: #dc3545;
-  border: 1px solid #dc3545;
-  background-color: #f8d7da;
-  border-radius: 4px;
+  background-color: #f4f4f7;
+  min-height: 80vh;
 }
 
 .recursosLista {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
 }
 
 .recursoItem {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: white;
+  padding: 18px;
   border-radius: 8px;
-  margin-bottom: 15px;
-  padding: 15px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .recursoItem h3 {
-  color: #0056b3;
-  margin-top: 0;
-  margin-bottom: 5px;
+  color: #007bff;
+  font-size: 1.1em;
+  margin-bottom: 10px;
 }
 
-.recursoItem p {
-  margin: 5px 0;
-  font-size: 0.9em;
-}
+/* --- (DESKTOP/TABLET) --- */
+@media (min-width: 768px) {
+  .listaContainer {
+    padding: 30px;
+  }
 
-.resourceLink {
-  display: inline-block;
-  margin-top: 10px;
-  color: #28a745;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.resourceLink:hover {
-  text-decoration: underline;
-  color: #1e7e34;
+  .recursosLista {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+  }
 }

@@ -1,0 +1,57 @@
+/* --- (MOBILE) --- */
+.historicoContainer {
+  padding: 20px;
+  background-color: #f4f4f7;
+  min-height: 80vh;
+}
+
+.notasLista {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.notasItem {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+
+.notaDestaque {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #007bff;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.statusAprovado {
+  color: #28a745;
+}
+
+.statusReprovado {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* --- (DESKTOP/TABLET) --- */
+@media (min-width: 768px) {
+  .historicoContainer {
+    padding: 30px;
+  }
+
+  .notasItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+
+  .notasItem > * {
+    flex-basis: 25%;
+  }
+}
