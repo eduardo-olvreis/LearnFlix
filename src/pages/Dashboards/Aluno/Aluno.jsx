@@ -4,7 +4,7 @@ import Header from "../../../components/Dashboards/Header/Header";
 const alunoNavLinks = [
   { path: "/aluno", label: "Início" },
   { path: "/aluno/recursos", label: "Meus Cursos" },
-  { path: "/aluno/historico", label: "Notas" },
+  { path: "/aluno/notas", label: "Notas" },
 ];
 
 export default function Aluno({ name, user }) {
