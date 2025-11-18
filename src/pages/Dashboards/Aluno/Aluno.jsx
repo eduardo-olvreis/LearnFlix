@@ -5,6 +5,7 @@ const alunoNavLinks = [
   { path: "/aluno", label: "Início" },
   { path: "/aluno/recursos", label: "Meus Cursos" },
   { path: "/aluno/notas", label: "Notas" },
+  { path: "/", label: "Sair"}
 ];
 
 export default function Aluno({ name, user }) {
@@ -25,7 +26,6 @@ export default function Aluno({ name, user }) {
         name={name}
         user={user}
         navLinks={alunoNavLinks}
-        onLogout={handleLogout}
       ></Header>
       <main>
         <Outlet />

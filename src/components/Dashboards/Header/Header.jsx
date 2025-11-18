@@ -1,17 +1,12 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import style from "./Header.module.css";
 
 export default function Header({ name, user, navLinks = [] }) {
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
 
   const handleClick = () => {
     setVisible(!visible);
-  };
-
-  const handleLogout = () => {
-    navigate("/");
   };
 
   return (
@@ -35,13 +30,9 @@ export default function Header({ name, user, navLinks = [] }) {
         <ul>
           {navLinks.map((link) => (
             <li key={link.path} onClick={handleClick}>
-              <Link to={link.path}>{link.label}</Link>
+              <Link className={style.item} to={link.path}>{link.label}</Link>
             </li>
           ))}
-
-          <li>
-            <p onClick={handleLogout}>Sair</p>
-          </li>
         </ul>
       </div>
     </header>

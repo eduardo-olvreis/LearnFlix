@@ -1,17 +1,22 @@
-import { useNavigate, useLocation, Outlet } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 import Header from "../../../components/Dashboards/Header/Header";
-import GestorHome from "./Home/GestorHome";
-import UserRegistration from "./UserRegistration/UserRegistration";
+
+const gestorNavLinkks = [
+  { path: "/", label: "Sair" }
+]
 
 export default function Gestor() {
-  const navigate = useNavigate();
   const location = useLocation();
 
   const userName = location.state?.user?.name || "Usuário"
 
   return (
     <section>
-      <Header name={userName} user={"Gestor"} onLogout={() => navigate("/")}></Header>
+      <Header 
+        name={userName} 
+        user={"Gestor"}
+        navLinks={gestorNavLinkks}>
+      </Header>
       <main>
         <Outlet />
       </main>

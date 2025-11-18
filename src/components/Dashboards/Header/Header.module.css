@@ -40,22 +40,22 @@
     left: 0;
     height: 85svh;
     width: 100%;
-    background-color: rgb(99, 151, 204);
-    color: white;
+    background-color: white;
+    color: black;
     opacity: 0;
     visibility: hidden;
     transform: translateX(100%);
     transition: all ease-in-out 0.3s;
     z-index: 10;
 
-    & li{
-        display: flex;
-    }
-
-    & p{
+    & .item{
+        padding: 10px;
+        color: black;
+        text-decoration: none;
         font-size: 1.2rem;
         cursor: pointer;
     }
+
 }
 
 .menu.visible{
