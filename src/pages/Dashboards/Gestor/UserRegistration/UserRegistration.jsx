@@ -30,13 +30,15 @@ export default function UserRegistration(){
             <form action="">
                 <div className={style.role}>
                     <p>Tipo de Acesso:</p>
-                    <div className={style.item}>
-                        <label htmlFor="professor">Professor</label>
-                        <input type="radio" name="role" id="professor"/>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="aluno">Aluno</label>
-                        <input type="radio" name="role" id="aluno"/>
+                    <div className={style.itens}>
+                        <div className={style.item}>
+                            <input type="radio" name="role" id="professor"/>
+                            <label htmlFor="professor">Professor</label>
+                        </div>
+                        <div className={style.item}>
+                            <input type="radio" name="role" id="aluno"/>
+                            <label htmlFor="aluno">Aluno</label>
+                        </div>
                     </div>
                 </div>
                 <div>
