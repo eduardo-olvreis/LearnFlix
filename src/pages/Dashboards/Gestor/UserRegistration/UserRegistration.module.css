@@ -54,3 +54,15 @@
         border-radius: 8px;
     }
 }
+
+.error {
+    background-color: #ffebeb;
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}

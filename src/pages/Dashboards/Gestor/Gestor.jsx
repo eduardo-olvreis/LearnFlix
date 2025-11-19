@@ -1,7 +1,7 @@
 import { useLocation, Outlet } from "react-router-dom";
 import Header from "../../../components/Dashboards/Header/Header";
 
-const gestorNavLinkks = [
+const gestorNavLinks = [
   { path: "/", label: "Sair" }
 ]
 
@@ -15,7 +15,7 @@ export default function Gestor() {
       <Header 
         name={userName} 
         user={"Gestor"}
-        navLinks={gestorNavLinkks}>
+        navLinks={gestorNavLinks}>
       </Header>
       <main>
         <Outlet />

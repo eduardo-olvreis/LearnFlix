@@ -1,4 +1,4 @@
-import { useNavigate, Outlet } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 import Header from "../../../components/Dashboards/Header/Header";
 
 const alunoNavLinks = [
@@ -8,25 +8,21 @@ const alunoNavLinks = [
   { path: "/", label: "Sair"}
 ];
 
-export default function Aluno({ name, user }) {
-  const navigate = useNavigate();
+export default function Aluno() {
+  const location = useLocation();
 
-  {/* Função provisória para alterar entre páginas */}
-  const handleGestor = () => {
-    navigate("/gestor")
-  }
+  const userName = location.state?.user?.name || "Usuário"
 
   return (
     <section>
       <Header
-        name={name}
-        user={user}
+        name={userName}
+        user={"Aluno"}
         navLinks={alunoNavLinks}
       ></Header>
       <main>
         <Outlet />
       </main>
-      <button onClick={handleGestor}>Área do Gestor - Provisório</button>
     </section>
   );
 }
