@@ -39,12 +39,8 @@ function Register() {
     }
 
     try {
-      const storedUsers =
-        JSON.parse(localStorage.getItem("users")) ||
-        []; /* Vai pegar todos os usuários cadastrados no localStorage */
-      const exists = storedUsers.some(
-        (u) => u.email === formData.email
-      ); /* Verificação de email duplicado */
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || []; /* Vai pegar todos os usuários cadastrados no localStorage */
+      const exists = storedUsers.some((u) => u.email === formData.email); /* Verificação de email duplicado */
 
       if (exists) {
         setError("Esse email já está cadastrado.");
