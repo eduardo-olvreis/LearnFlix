@@ -1,5 +1,7 @@
-:root{
-    --background-color: #f5f5f5;
-    --background-strongblue: #0051a0;
-    --button-color: #0993eb
+:root {
+  --background-color: #f5f5f5;
+  --background-strongblue: #0051a0;
+  --menu-mobile-width: 80%;
+  --menu-desktop-width: 300px;
+  --button-color: #0993eb
 }
