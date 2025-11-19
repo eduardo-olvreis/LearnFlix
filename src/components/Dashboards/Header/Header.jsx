@@ -1,13 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import style from "./Header.module.css";
 
 export default function Header({ name, user, navLinks = [] }) {
+
+  const navigate = useNavigate();
+
   const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
     setVisible(!visible);
   };
+
+  const handleLogout = () =>{
+    sessionStorage.removeItem(`loggedInUser`)
+    navigate("/")
+  }
 
   return (
     <header className={style.container}>
@@ -33,6 +41,9 @@ export default function Header({ name, user, navLinks = [] }) {
               <Link className={style.item} to={link.path}>{link.label}</Link>
             </li>
           ))}
+          <li>
+            <Link className={style.item} to={"/"} onClick={handleLogout}>Sair</Link>
+          </li>
         </ul>
       </div>
     </header>

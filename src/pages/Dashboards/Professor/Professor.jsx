@@ -1,21 +1,30 @@
-import { useLocation, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../../../components/Dashboards/Header/Header"
-
-const professorNavLinks = [
-    { path: "/", label: "Sair"}
-]
+import { useEffect, useState } from "react";
 
 export default function Professor(){
-    const location = useLocation();
-    
-    const userName = location.state?.user?.name || "Usuário"
+
+    const navigate = useNavigate()
+
+    const [userName, setUserName] = useState("Usuário")
+
+    useEffect(() => {
+        try {
+        const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"))
+        if(loggedInUser && loggedInUser.name){
+            setUserName(loggedInUser.name)
+        }
+        } catch(error){
+        console.error("Falha ao ler os dados do usuário da sessão:",error)
+        navigate("/")
+        }
+    })
 
     return(
         <section>
             <Header 
                 name={userName} 
-                user={"Professor"} 
-                navLinks={professorNavLinks}>
+                user={"Professor"}>
             </Header>
             <main>
                 <Outlet/>

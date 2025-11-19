@@ -47,6 +47,7 @@ function Login() {
       );
 
       if (userFound) {
+        sessionStorage.setItem(`loggedInUser`, JSON.stringify(userFound))
         console.log("Login realizado com sucesso!", userFound.email);
 
         if(userFound.role === "Gestor"){
