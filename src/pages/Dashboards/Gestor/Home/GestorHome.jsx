@@ -8,11 +8,6 @@ export default function GestorHome(){
         navigate("cadastrar-usuario")
     }
 
-    {/* Função provisória para alterar entre páginas */}
-    const handleAluno = () => {
-        navigate("/aluno")
-    }
-
     return (
         <div className={styles.container}>
             <div>
@@ -23,7 +18,6 @@ export default function GestorHome(){
                 <Button onClick={handleUserRegister}>Cadastrar Novo Usuário</Button>
                 <Button onClick={() => {}}>Gerenciar Usuários - Em Breve</Button>
             </div>
-            <button onClick={handleAluno}>Área do Aluno - Provisório</button>
         </div>
     )
 }

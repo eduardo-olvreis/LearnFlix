@@ -51,10 +51,10 @@ function Login() {
 
         if(userFound.role === "Gestor"){
           navigate("/gestor", {state: {user: userFound}})
-        } else if(userFound.role === "Professor"){
-          navigate("/professor")
+        } else if(userFound.role === "professor"){
+          navigate("/professor", {state: {user: userFound}})
         } else{
-          navigate("/aluno")
+          navigate("/aluno", {state: {user: userFound}})
         }
 
       } else {
