@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.form{
+    width: 70%;
+}
+
 .role{
     display: flex;
     flex-direction: column;
@@ -55,14 +59,32 @@
     }
 }
 
-.error {
-    background-color: #ffebeb;
-    color: #cc0000;
+.error, .successful {
+    max-width: 100%;
     padding: 10px;
-    border: 1px solid #cc0000;
     border-radius: 4px;
     margin-top: 15px;
     margin-bottom: 15px;
     font-size: 0.9rem;
     text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.error{
+    background-color: #ffebeb;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
+.error-hidden {
+    opacity: 0;
+}
+
+.successful {
+    background-color: #e8fae7;
+    color: #007022;
+    border: 1px solid #007022;
+}
+.successful-hidden {
+    opacity: 0;
 }
