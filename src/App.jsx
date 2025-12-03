@@ -6,6 +6,7 @@ import Register from "./pages/auth/register/Register";
 import GestorHome from "./pages/Dashboards/Gestor/Home/GestorHome";
 import Gestor from "./pages/Dashboards/Gestor/Gestor";
 import UserRegistration from "./pages/Dashboards/Gestor/UserRegistration/UserRegistration";
+import UserManagement from "./pages/Dashboards/Gestor/UserManagement/UserManagement";
 
 import Professor from "./pages/Dashboards/Professor/Professor";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/gestor" element={<Gestor/>}>
           <Route index element={<GestorHome />} />
           <Route path="cadastrar-usuario" element={<UserRegistration/>}/>
+          <Route path="gerenciar-usuario" element={<UserManagement/>}/>
         </Route>
         <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />}>
           <Route index element={<DashboardAluno />} />
