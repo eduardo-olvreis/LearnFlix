@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import Header from "../../../components/Dashboards/Header/Header";
+import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 
 const alunoNavLinks = [
