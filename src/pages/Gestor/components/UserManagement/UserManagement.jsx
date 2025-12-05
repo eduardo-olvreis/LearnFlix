@@ -10,6 +10,12 @@ export default function UserManagement(){
         navigate("/gestor")
     }
 
+    const handleEdit = (email) => {
+        navigate("/gestor/editar-usuario", {
+            state: { emailUsuario: email }
+        })
+    }
+
     const rawUsers = localStorage.getItem("users")
     const users = JSON.parse(rawUsers) || []
 
@@ -21,7 +27,7 @@ export default function UserManagement(){
         }
 
         return usuariosFiltrados.map((user, index) => (
-            <div key={index} className={styles.usuarioDados}>
+            <div key={index} className={styles.usuarioDados} onClick={() => handleEdit(user.email)}>
                 <p>{user.name}</p>
                 <p>{user.email}</p>
             </div>

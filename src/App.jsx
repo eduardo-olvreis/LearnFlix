@@ -7,6 +7,7 @@ import GestorHome from "./pages/Gestor/components/Home/GestorHome";
 import Gestor from "./pages/Gestor/Gestor";
 import UserRegistration from "./pages/Gestor/components/UserRegistration/UserRegistration";
 import UserManagement from "./pages/Gestor/components/UserManagement/UserManagement";
+import UserEdit from "./pages/Gestor/components/UserManagement/UserEdit";
 
 import Professor from "./pages/Professor/Professor";
 
@@ -14,6 +15,7 @@ import Aluno from "./pages/Aluno/Aluno";
 import DashboardAluno from "./pages/Aluno/components/DashboardAluno/DashboardAluno";
 import ListaRecursos from "./pages/Aluno/components/ListaRecursos/ListaRecursos";
 import NotasAluno from "./pages/Aluno/components/NotasAluno/NotasAluno";
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route index element={<GestorHome />} />
           <Route path="cadastrar-usuario" element={<UserRegistration/>}/>
           <Route path="gerenciar-usuario" element={<UserManagement/>}/>
+          <Route path="/gestor/editar-usuario" element={<UserEdit/>}/>
         </Route>
 
         {/* Página professor */}
