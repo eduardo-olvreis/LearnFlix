@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
+import styles from "./UserManagement.module.css"
 
 export default function UserManagement(){
 
@@ -20,30 +21,31 @@ export default function UserManagement(){
         }
 
         return usuariosFiltrados.map((user, index) => (
-            <div key={index}>
+            <div key={index} className={styles.usuarioDados}>
                 <p>{user.name}</p>
                 <p>{user.email}</p>
-                <p>{user.password}</p>
             </div>
         ))
     }
 
     return(
-        <section>
-            <div>
+        <section className={styles.container}>
+            <div className={styles.containerUsuarios}>
                 {/* Depois tem que criar um componente para renderizar isso e despoluir */}
                 <h2>Lista de usuários registrados</h2>
-                <div>
-                    <h3>Gestores</h3>
-                    {listarUsuarios("Gestor")}
-                </div>
-                <div>
-                    <h3>Professores</h3>
-                    {listarUsuarios("professor")}
-                </div>
-                <div>
-                    <h3>Alunos</h3>
-                    {listarUsuarios("aluno")}
+                <div className={styles.usuarios}>
+                    <div className={styles.containerCargo}>
+                        <h3>Gestores</h3>
+                        {listarUsuarios("gestor")}
+                    </div>
+                    <div className={styles.containerCargo}>
+                        <h3>Professores</h3>
+                        {listarUsuarios("professor")}
+                    </div>
+                    <div className={styles.containerCargo}>
+                        <h3>Alunos</h3>
+                        {listarUsuarios("aluno")}
+                    </div>
                 </div>
             </div>
             <Button onClick={handleBack}>Voltar</Button>
