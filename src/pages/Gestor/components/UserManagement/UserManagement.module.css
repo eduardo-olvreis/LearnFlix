@@ -1,0 +1,58 @@
+.container{
+    padding: 5%;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerUsuarios{
+    width: 80%;
+}
+
+.usuarios{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.containerCargo{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px #d1d5db solid;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    & h3{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+.containerUsuarios{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.usuarioDados{
+    padding: 5px;
+    display: grid;
+    border-radius: 5px;
+    gap: 10px;
+    grid-template-columns: 0.7fr 1fr;
+    transition: all ease-in-out 0.15s;
+    cursor: pointer;
+}
+.usuarioDados:hover{
+    background-color: rgba(176, 216, 255, 0.5);
+}
+.usuarioDados p{
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

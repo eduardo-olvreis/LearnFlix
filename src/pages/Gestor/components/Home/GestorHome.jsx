@@ -20,7 +20,7 @@ export default function GestorHome(){
             </div>
             <div className={styles.buttons}>
                 <Button onClick={handleUserRegister}>Cadastrar Novo Usuário</Button>
-                <Button onClick={handleUserManagement}>Gerenciar Usuários - Em Breve</Button>
+                <Button onClick={handleUserManagement}>Gerenciar Usuários</Button>
             </div>
         </div>
     )
