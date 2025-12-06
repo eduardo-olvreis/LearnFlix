@@ -1,0 +1,119 @@
+.perfilContainer {
+  padding: 16px;
+  background-color: #f4f7f9;
+  min-height: 100vh;
+}
+
+.pageTitle {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.photoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #007bff;
+}
+
+.fileInput {
+  display: none;
+}
+
+.photoButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.photoButton:hover {
+  background-color: #0056b3;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.input[readonly] {
+  background-color: #eee;
+  color: #888;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #1e7e34;
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+  .pageTitle {
+    text-align: left;
+  }
+
+  .form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1200px) {
+  .perfilContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+}

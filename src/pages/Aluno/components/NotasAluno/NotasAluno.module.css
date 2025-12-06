@@ -1,57 +1,115 @@
-/* --- (MOBILE) --- */
-.historicoContainer {
-  padding: 20px;
-  background-color: #f4f4f7;
-  min-height: 80vh;
+.notasContainer {
+  padding: 16px;
+  background-color: #f4f7f9;
+  min-height: 100vh;
 }
 
-.notasLista {
+.pageTitle {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.gradesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.courseCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-left: 5px solid #007bff;
+}
+
+.courseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.courseHeader h3 {
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.approved {
+  background-color: #28a745;
+}
+
+.reproved {
+  background-color: #dc3545;
+}
+
+.professorName {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.gradesSummary {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.gradesSummary h4 {
+  font-size: 16px;
+  color: #333;
+}
+
+.gradesList {
   list-style: none;
   padding: 0;
-  margin-top: 15px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
-.notasItem {
-  background-color: white;
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-  display: block;
+.avaliacaoItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f1f1f1;
+  font-size: 14px;
 }
 
-.notaDestaque {
+.gradeValue {
   font-weight: bold;
-  font-size: 1.1em;
   color: #007bff;
-  display: inline-block;
-  margin-left: 10px;
 }
 
-.statusAprovado {
-  color: #28a745;
-}
+/* TABLET */
 
-.statusReprovado {
-  color: #dc3545;
-  font-weight: bold;
-}
-
-/* --- (DESKTOP/TABLET) --- */
 @media (min-width: 768px) {
-  .historicoContainer {
-    padding: 30px;
+  .pageTitle {
+    text-align: left;
   }
 
-  .notasItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
+  .gradesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1200px) {
+  .notasContainer {
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  .notasItem > * {
-    flex-basis: 25%;
+  .gradesGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

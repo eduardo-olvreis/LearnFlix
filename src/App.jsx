@@ -11,11 +11,10 @@ import UserEdit from "./pages/Gestor/components/UserManagement/UserEdit";
 
 import Professor from "./pages/Professor/Professor";
 
-import Aluno from "./pages/Aluno/Aluno";
-import DashboardAluno from "./pages/Aluno/components/DashboardAluno/DashboardAluno";
-import ListaRecursos from "./pages/Aluno/components/ListaRecursos/ListaRecursos";
-import NotasAluno from "./pages/Aluno/components/NotasAluno/NotasAluno";
-
+import Aluno from "./pages/Dashboards/Aluno/Aluno";
+import DashboardAluno from "./components/Dashboards/DashboardAluno/DashboardAluno";
+import ListaRecursos from "./components/Dashboards/ListaRecursos/ListaRecursos";
+import NotasAluno from "./components/Dashboards/NotasAluno/NotasAluno";
 
 function App() {
   return (
@@ -23,22 +22,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-        {/* Página gestor */}
+        <Route path="/professor" element={<Professor/>}/>
         <Route path="/gestor" element={<Gestor/>}>
           <Route index element={<GestorHome />} />
           <Route path="cadastrar-usuario" element={<UserRegistration/>}/>
-          <Route path="gerenciar-usuario" element={<UserManagement/>}/>
-          <Route path="/gestor/editar-usuario" element={<UserEdit/>}/>
         </Route>
-
-        {/* Página professor */}
-        <Route path="/professor" element={<Professor/>}/>
-
-        {/* Página aluno */}
-        <Route path="/aluno" element={<Aluno/>}>
+        <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />}>
           <Route index element={<DashboardAluno />} />
           <Route path="recursos" element={<ListaRecursos />} />
+
           <Route path="notas" element={<NotasAluno />} />
         </Route>
       </Routes>
