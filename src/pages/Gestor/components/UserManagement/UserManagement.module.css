@@ -7,10 +7,6 @@
     align-items: center;
 }
 
-.containerUsuarios{
-    width: 80%;
-}
-
 .usuarios{
     display: flex;
     flex-direction: column;
@@ -32,12 +28,6 @@
     }
 }
 
-.containerUsuarios{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
 .usuarioDados{
     padding: 5px;
     display: grid;
@@ -55,4 +45,23 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.containerUsuarios{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px #d1d5db solid;
+}
+
+.titulo {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: 600;
 }

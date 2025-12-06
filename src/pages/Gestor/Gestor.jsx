@@ -8,6 +8,13 @@ export default function Gestor() {
 
   const [userName, setUserName] = useState("Usuário")
 
+  const gestorNavLinks = [
+  { path: "/gestor", label: "Início" },
+  { path: "/gestor/cadastrar-usuario", label: "Cadastrar Usuários" },
+  { path: "/gestor/gerenciar-usuario", label: "Gerenciar Usuários" }
+];
+
+
   useEffect(() => {
     try {
       const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"))
@@ -24,7 +31,8 @@ export default function Gestor() {
     <section>
       <Header 
         name={userName} 
-        user={"Gestor"}>
+        user={"Gestor"}
+        navLinks={gestorNavLinks}>
       </Header>
       <main>
         <Outlet />
