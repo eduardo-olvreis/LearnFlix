@@ -8,6 +8,10 @@ export default function GestorHome(){
         navigate("cadastrar-usuario")
     }
 
+    const handleUserManagement  = () => {
+        navigate("gerenciar-usuario")
+    }
+
     return (
         <div className={styles.container}>
             <div>
@@ -16,7 +20,7 @@ export default function GestorHome(){
             </div>
             <div className={styles.buttons}>
                 <Button onClick={handleUserRegister}>Cadastrar Novo Usuário</Button>
-                <Button onClick={() => {}}>Gerenciar Usuários - Em Breve</Button>
+                <Button onClick={handleUserManagement}>Gerenciar Usuários</Button>
             </div>
         </div>
     )

@@ -3,16 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/login/Login";
 import Register from "./pages/auth/register/Register";
 
-import GestorHome from "./pages/Dashboards/Gestor/Home/GestorHome";
-import Gestor from "./pages/Dashboards/Gestor/Gestor";
-import UserRegistration from "./pages/Dashboards/Gestor/UserRegistration/UserRegistration";
+import GestorHome from "./pages/Gestor/components/Home/GestorHome";
+import Gestor from "./pages/Gestor/Gestor";
+import UserRegistration from "./pages/Gestor/components/UserRegistration/UserRegistration";
+import UserManagement from "./pages/Gestor/components/UserManagement/UserManagement";
+import UserEdit from "./pages/Gestor/components/UserManagement/UserEdit";
 
-import Professor from "./pages/Dashboards/Professor/Professor";
+import Professor from "./pages/Professor/Professor";
 
-import Aluno from "./pages/Dashboards/Aluno/Aluno";
-import DashboardAluno from "./components/Dashboards/DashboardAluno/DashboardAluno";
-import ListaRecursos from "./components/Dashboards/ListaRecursos/ListaRecursos";
-import NotasAluno from "./components/Dashboards/NotasAluno/NotasAluno";
+import Aluno from "./pages/Aluno/Aluno";
+import DashboardAluno from "./pages/Aluno/components/DashboardAluno/DashboardAluno";
+import ListaRecursos from "./pages/Aluno/components/ListaRecursos/ListaRecursos";
+import NotasAluno from "./pages/Aluno/components/NotasAluno/NotasAluno";
 import PerfilAluno from "./components/Dashboards/PerfilAluno/PerfilAluno";
 
 function App() {
@@ -28,7 +30,6 @@ function App() {
         </Route>
         <Route path="/aluno/*" element={<Aluno name="Eduardo" user="Aluno" />}>
           <Route index element={<DashboardAluno />} />
-
           <Route path="recursos" element={<ListaRecursos />} />
 
           <Route path="notas" element={<NotasAluno dadosNotas={[]} />} />
