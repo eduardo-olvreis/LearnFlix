@@ -23,7 +23,7 @@ export default function UserManagement(){
         const usuariosFiltrados = users.filter((user) => user.role.toLowerCase() === cargo.toLowerCase())
 
         if(usuariosFiltrados.length === 0){
-            return <p>Nenhum usuário com o cargo {cargo} registrado.</p>
+            return <p style={{textAlign: "center"}}>Nenhum usuário com o cargo {cargo} registrado.</p>
         }
 
         return usuariosFiltrados.map((user, index) => (
@@ -38,7 +38,7 @@ export default function UserManagement(){
         <section className={styles.container}>
             <div className={styles.containerUsuarios}>
                 {/* Depois tem que criar um componente para renderizar isso e despoluir */}
-                <h2>Lista de usuários registrados</h2>
+                <h2 className={styles.titulo}>Lista de usuários registrados</h2>
                 <div className={styles.usuarios}>
                     <div className={styles.containerCargo}>
                         <h3>Gestores</h3>
