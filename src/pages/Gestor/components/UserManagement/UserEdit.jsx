@@ -34,14 +34,14 @@ export default function UserEdit() {
         password: targetUser?.password || ""
     });
     
-    const MSG_TIMEOUT = 2500;
-    const TRANSITION = 500;
+    const showDuration = 2500;
+    const transitionDuration = 500;
     
     useEffect(() => {
         if(errorMsg) {
             setShowError(true);
-            const t1 = setTimeout(() => setShowError(false), MSG_TIMEOUT);
-            const t2 = setTimeout(() => setErrorMsg(null), MSG_TIMEOUT + TRANSITION);
+            const t1 = setTimeout(() => setShowError(false), showDuration);
+            const t2 = setTimeout(() => setErrorMsg(null), showDuration + transitionDuration);
             return () => { clearTimeout(t1); clearTimeout(t2); };
         }
     }, [errorMsg]);
@@ -49,8 +49,8 @@ export default function UserEdit() {
     useEffect(() => {
         if(successMsg) {
             setShowSuccess(true);
-            const t1 = setTimeout(() => setShowSuccess(false), MSG_TIMEOUT);
-            const t2 = setTimeout(() => setSuccessMsg(null), MSG_TIMEOUT + TRANSITION);
+            const t1 = setTimeout(() => setShowSuccess(false), showDuration);
+            const t2 = setTimeout(() => setSuccessMsg(null), showDuration + transitionDuration);
             return () => { clearTimeout(t1); clearTimeout(t2); };
         }
     }, [successMsg]);
@@ -87,12 +87,12 @@ export default function UserEdit() {
             
             setTimeout(() => {
                 navigate("/"); 
-            }, MSG_TIMEOUT + TRANSITION);
+            }, showDuration + transitionDuration);
         } else {
             setSuccessMsg("Dados atualizados com sucesso!");
             setTimeout(() => {
                 navigate("../gerenciar-usuario");
-            }, MSG_TIMEOUT + TRANSITION);
+            }, showDuration + transitionDuration);
         }
     };
 
@@ -114,7 +114,7 @@ export default function UserEdit() {
         
         setTimeout(() => {
             navigate("../gerenciar-usuario");
-        }, MSG_TIMEOUT + TRANSITION);
+        }, showDuration + transitionDuration);
     };
 
     return (

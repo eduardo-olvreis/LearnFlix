@@ -11,10 +11,10 @@ import UserEdit from "./pages/Gestor/components/UserManagement/UserEdit";
 
 import Professor from "./pages/Professor/Professor";
 
-import Aluno from "./pages/Dashboards/Aluno/Aluno";
-import DashboardAluno from "./components/Dashboards/DashboardAluno/DashboardAluno";
-import ListaRecursos from "./components/Dashboards/ListaRecursos/ListaRecursos";
-import NotasAluno from "./components/Dashboards/NotasAluno/NotasAluno";
+import Aluno from "./pages/Aluno/Aluno";
+import DashboardAluno from "./pages/Aluno/components/DashboardAluno/DashboardAluno";
+import ListaRecursos from "./pages/Aluno/components/ListaRecursos/ListaRecursos";
+import NotasAluno from "./pages/Aluno/components/NotasAluno/NotasAluno";
 
 function App() {
   return (
@@ -26,6 +26,8 @@ function App() {
         <Route path="/gestor" element={<Gestor/>}>
           <Route index element={<GestorHome />} />
           <Route path="cadastrar-usuario" element={<UserRegistration/>}/>
+          <Route path="gerenciar-usuario" element={<UserManagement/>}/>
+          <Route path="editar-usuario" element={<UserEdit/>}/>
         </Route>
         <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />}>
           <Route index element={<DashboardAluno />} />
