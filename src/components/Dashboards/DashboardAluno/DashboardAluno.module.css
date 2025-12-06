@@ -1,54 +1,84 @@
-/* --- (MOBILE) --- */
-.container {
-  padding: 20px;
-  background-color: #f4f4f7;
-  min-height: 80vh;
+.dashboardContainer {
+  padding: 16px;
+  background-color: #f4f7f9;
+  min-height: 100vh;
 }
 
-.container h1 {
+.welcomeHeader h1 {
+  font-size: 24px;
   color: #333;
-  margin-bottom: 15px;
-  font-size: 1.8em;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
-.grid {
+.statsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .card {
-  padding: 18px;
-  background-color: white;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #f4f7f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .card h3 {
+  font-size: 16px;
   color: #007bff;
-  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pendingSection h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.pendingList p {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 8px;
   margin-bottom: 10px;
+  border-left: 5px solid #ffc107;
+  font-size: 14px;
+  color: #333;
 }
 
-.score {
-  font-size: 2em;
-  font-weight: 700;
-  color: #28a745;
-}
-
-/* --- (DESKTOP/TABLET) --- */
+/* TABLET */
 @media (min-width: 768px) {
-  .container {
-    padding: 30px;
+  .dashboardContainer {
+    padding: 32px;
   }
 
-  .grid {
+  .welcomeHeader h1 {
+    text-align: left;
+  }
+
+  .statsGrid {
+    /* Tablet: 2 colunas */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1200px) {
+  .dashboardContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .statsGrid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .score {
-    font-size: 2.5em;
   }
 }

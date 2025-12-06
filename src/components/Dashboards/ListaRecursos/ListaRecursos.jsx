@@ -46,7 +46,7 @@ function ListaRecursos() {
 
   return (
     <div className={styles.listaContainer}>
-      <h1>Recursos de Programação ({recursos.length})</h1>
+      <h1>Materiais para estudo: ({recursos.length})</h1>
       <ul className={styles.recursosLista}>
         {recursos.map((recurso) => (
           <li key={recurso.id || recurso.title} className={styles.recursoItem}>

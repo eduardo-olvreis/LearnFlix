@@ -13,6 +13,7 @@ import Aluno from "./pages/Dashboards/Aluno/Aluno";
 import DashboardAluno from "./components/Dashboards/DashboardAluno/DashboardAluno";
 import ListaRecursos from "./components/Dashboards/ListaRecursos/ListaRecursos";
 import NotasAluno from "./components/Dashboards/NotasAluno/NotasAluno";
+import PerfilAluno from "./components/Dashboards/PerfilAluno/PerfilAluno";
 
 function App() {
   return (
@@ -20,17 +21,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/professor" element={<Professor/>}/>
-        <Route path="/gestor" element={<Gestor/>}>
+        <Route path="/professor" element={<Professor />} />
+        <Route path="/gestor" element={<Gestor />}>
           <Route index element={<GestorHome />} />
-          <Route path="cadastrar-usuario" element={<UserRegistration/>}/>
+          <Route path="cadastrar-usuario" element={<UserRegistration />} />
         </Route>
-        <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />}>
+        <Route path="/aluno/*" element={<Aluno name="Eduardo" user="Aluno" />}>
           <Route index element={<DashboardAluno />} />
 
           <Route path="recursos" element={<ListaRecursos />} />
 
-          <Route path="notas" element={<NotasAluno />} />
+          <Route path="notas" element={<NotasAluno dadosNotas={[]} />} />
+
+          <Route
+            path="perfil"
+            element={<PerfilAluno alunoData={"Eduardo"} />}
+          />
         </Route>
       </Routes>
     </Router>
