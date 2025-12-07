@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import styles from "./PerfilAluno.module.css";
 
+import Input from "../../../../components/Input/Input";
+import Button from "../../../../components/Button/Button";
+import Card from "../../../../components/Card/Card";
+
 const PerfilAluno = () => {
+  const context = useOutletContext();
+  const setUserName = context ? context.setUserName : () => {};
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -43,95 +50,108 @@ const PerfilAluno = () => {
     e.preventDefault();
 
     try {
-      const storedData = JSON.parse(
+      const storedCurrentData = JSON.parse(
         localStorage.getItem("currentUser") || "{}"
       );
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-      const updatedData = {
-        ...storedData,
+      const updatedCurrentData = {
+        ...storedCurrentData,
         nome: formData.nome,
         foto: formData.foto,
       };
 
       if (formData.novaSenha) {
-        updatedData.senha = formData.novaSenha;
-        console.log("Senha alterada.");
+        updatedCurrentData.senha = formData.novaSenha;
       }
 
-      localStorage.setItem("currentUser", JSON.stringify(updatedData));
+      localStorage.setItem("currentUser", JSON.stringify(updatedCurrentData));
 
-      alert("Perfil atualizado com sucesso no Local Storage!");
+      const userIndex = storedUsers.findIndex(
+        (u) => u.email === updatedCurrentData.email
+      );
+
+      if (userIndex !== -1) {
+        const updatedUsers = [...storedUsers];
+        updatedUsers[userIndex] = {
+          ...updatedUsers[userIndex],
+          name: updatedCurrentData.nome,
+          foto: updatedCurrentData.foto,
+          password:
+            updatedCurrentData.senha || updatedUsers[userIndex].password,
+        };
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
+      }
+
+      if (setUserName) {
+        setUserName(formData.nome);
+      }
+
+      alert("Perfil e senha atualizados com sucesso!");
       setFormData((prev) => ({ ...prev, novaSenha: "" }));
     } catch (error) {
-      console.error("Erro ao salvar dados no Local Storage:", error);
+      console.error("Erro ao salvar dados:", error);
       alert("Falha ao salvar o perfil.");
     }
   };
 
   return (
     <div className={styles.perfilContainer}>
-      <h1 className={styles.pageTitle}>Meu Perfil</h1>
+      <Card className={styles.cardOverrides}>
+        <h1 className={styles.pageTitle}>Meu Perfil</h1>
 
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.photoSection}>
-          <img
-            src={formData.foto || "placeholder-default.jpg"}
-            alt="Foto do Aluno"
-            className={styles.profileImage}
-          />
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.photoSection}>
+            <img
+              src={formData.foto || "placeholder-default.jpg"}
+              alt="Foto do Aluno"
+              className={styles.profileImage}
+            />
 
-          <input
-            type="file"
-            accept="image/*"
-            capture="user"
-            onChange={handlePhotoChange}
-            id="photo-upload"
-            className={styles.fileInput}
-          />
-          <label htmlFor="photo-upload" className={styles.photoButton}>
-            Alterar Foto
-          </label>
-        </div>
+            <input
+              type="file"
+              accept="image/*"
+              capture="user"
+              onChange={handlePhotoChange}
+              id="photo-upload"
+              className={styles.fileInput}
+            />
+            <label htmlFor="photo-upload" className={styles.photoButton}>
+              Alterar Foto
+            </label>
+          </div>
 
-        <div className={styles.inputGroup}>
-          <label htmlFor="nome">Nome</label>
-          <input
+          <Input
+            label="Nome"
             type="text"
             name="nome"
             value={formData.nome}
             onChange={handleChange}
-            className={styles.input}
             required
           />
-        </div>
 
-        <div className={styles.inputGroup}>
-          <label htmlFor="email">Email</label>
-          <input
+          <Input
+            label="Email Institucional"
             type="email"
             name="email"
             value={formData.email}
-            className={styles.input}
-            readOnly
+            readOnly={true}
           />
-        </div>
 
-        <div className={styles.inputGroup}>
-          <label htmlFor="novaSenha">Nova Senha</label>
-          <input
+          <Input
+            label="Nova Senha"
             type="password"
             name="novaSenha"
             value={formData.novaSenha}
             onChange={handleChange}
-            className={styles.input}
             placeholder="Deixe em branco para não alterar"
           />
-        </div>
 
-        <button type="submit" className={styles.submitButton}>
-          Salvar Alterações
-        </button>
-      </form>
+          <Button type="submit" className={styles.submitButton}>
+            Salvar Alterações
+          </Button>
+        </form>
+      </Card>
     </div>
   );
 };

@@ -38,7 +38,7 @@ function Login() {
     }
 
     try {
-      const storedUsers = JSON.parse(localStorage.getItem("users")) || []; // Pega todos os usuários do localStorage
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
       const userFound = storedUsers.find(
         // Busca e validação das credenciais
@@ -47,17 +47,25 @@ function Login() {
       );
 
       if (userFound) {
-        sessionStorage.setItem(`loggedInUser`, JSON.stringify(userFound))
+        const userProfileData = {
+          nome: userFound.name,
+          email: userFound.email,
+          role: userFound.role,
+          foto: userFound.foto || null,
+        };
+
+        localStorage.setItem("currentUser", JSON.stringify(userProfileData));
+
+        sessionStorage.setItem(`loggedInUser`, JSON.stringify(userFound));
         console.log("Login realizado com sucesso!", userFound.email);
 
-        if(userFound.role === "Gestor"){
-          navigate("/gestor", {state: {user: userFound}})
-        } else if(userFound.role === "professor"){
-          navigate("/professor", {state: {user: userFound}})
-        } else{
-          navigate("/aluno", {state: {user: userFound}})
+        if (userFound.role === "Gestor") {
+          navigate("/gestor", { state: { user: userFound } });
+        } else if (userFound.role === "professor") {
+          navigate("/professor", { state: { user: userFound } });
+        } else {
+          navigate("/aluno", { state: { user: userFound } });
         }
-
       } else {
         setError("Email ou senha incorretos.");
       }

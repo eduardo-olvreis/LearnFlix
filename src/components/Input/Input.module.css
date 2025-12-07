@@ -23,6 +23,13 @@
   box-sizing: border-box;
 }
 
+.input[readonly] {
+  background-color: #e9ecef;
+  color: #495057;
+  cursor: not-allowed;
+  border-color: #ced4da;
+}
+
 .input:focus {
   outline: none;
   border-color: #0993eb;
