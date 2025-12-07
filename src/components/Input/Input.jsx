@@ -1,6 +1,14 @@
 import styles from "./Input.module.css";
 
-function Input({ label, type = "text", placeholder, value, onChange, name }) {
+function Input({
+  label,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  name,
+  readOnly,
+}) {
   return (
     <div className={styles.inputContainer}>
       {label && <label className={styles.label}>{label}</label>}
@@ -10,6 +18,7 @@ function Input({ label, type = "text", placeholder, value, onChange, name }) {
         value={value}
         onChange={onChange}
         name={name}
+        readOnly={readOnly}
         className={styles.input}
       />
     </div>

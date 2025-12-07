@@ -15,21 +15,29 @@ export default function Aluno() {
 
   useEffect(() => {
     try {
-      const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-      if (loggedInUser && loggedInUser.name) {
-        setUserName(loggedInUser.name);
+      const storedData = localStorage.getItem("currentUser");
+      const loggedInUser = sessionStorage.getItem("loggedInUser");
+
+      if (storedData) {
+        const userData = JSON.parse(storedData);
+        setUserName(userData.nome || userData.name || "Aluno");
+      } else if (loggedInUser) {
+        const userData = JSON.parse(loggedInUser);
+        setUserName(userData.name);
+      } else {
+        navigate("/");
       }
     } catch (error) {
-      console.error("Falha ao ler os dados do usuário da sessão:", error);
+      console.error("Falha ao ler os dados do usuário:", error);
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <section>
       <Header name={userName} user={"Aluno"} navLinks={alunoNavLinks} />
       <main>
-        <Outlet />
+        <Outlet context={{ setUserName }} />
       </main>
     </section>
   );
