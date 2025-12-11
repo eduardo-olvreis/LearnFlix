@@ -3,8 +3,17 @@
   padding: 20px;
   background-color: #f4f4f7;
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.listaContainer h1{
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 24px;
+}
 .recursosLista {
   list-style: none;
   padding: 0;
@@ -16,6 +25,8 @@
 .recursoItem {
   background-color: white;
   padding: 18px;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -24,6 +35,14 @@
 .recursoItem h3 {
   color: #007bff;
   font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.resourceLink{
+  margin-top: 10px;
+}
+
+.exibirQuantidade{
   margin-bottom: 10px;
 }
 
