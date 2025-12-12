@@ -1,131 +1,140 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    padding: 20px;
-    background-color: #f5f5f5;
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f7f9;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .card { 
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px; 
-    display: flex;
-    flex-direction: column;
-    border: 1px #d1d5db solid;
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  width: 100%;
+  max-width: 500px; 
+  display: flex;
+  flex-direction: column;
 }
 
 .titulo {
-    margin: 0 0 10px 0;
-    color: #333;
-    text-align: center;
+  margin: 0 0 10px 0;
+  color: #333;
+  text-align: center;
+  font-size: 22px; 
+  font-weight: 600;
 }
 
 .atualizeUsuario {
-    margin: 0 0 30px 0;
-    color: #666;
-    text-align: center;
-    font-size: 0.9rem;
+  margin: 0 0 30px 0;
+  color: #666;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.password{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.password {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
 }
 
 .error, .successful {
-    max-width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    text-align: center;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .successful {
-    background-color: #e8fae7;
-    color: #007022;
-    border: 1px solid #007022;
+  background-color: #e8fae7;
+  color: #007022;
+  border: 1px solid #007022;
 }
 
 .successful-hidden {
-    opacity: 0;
+  opacity: 0;
 }
 
 .error {
-    background-color: #ffebeb;
-    color: #cc0000;
-    border: 1px solid #cc0000;
+  background-color: #ffebeb;
+  color: #cc0000;
+  border: 1px solid #cc0000;
 }
 
 .error-hidden {
-    opacity: 0;
+  opacity: 0;
 }
 
 .deleteButton {
-    background-color: #dc3545;
-    color: white;
-    border-color: #dc3545;
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
 }
 
 .deleteButton:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
 .deleteConfirmationBox {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #f5c6cb;
-    background-color: #f8d7da;
-    color: #721c24;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #f5c6cb;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .confirmActions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.confirmActions > button {
+  flex: 1;
 }
 
 .buttonConfirmDelete {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
 }
 
 .buttonConfirmDelete:hover {
-    background-color: #b02a37;
+  background-color: #b02a37;
 }
 
 .buttonCancelDelete {
-    background-color: #6c757d;
-    color: #fff;
-    border: none;
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
 }
 
 .buttonCancelDelete:hover {
-    background-color: #565e64;
+  background-color: #565e64;
 }

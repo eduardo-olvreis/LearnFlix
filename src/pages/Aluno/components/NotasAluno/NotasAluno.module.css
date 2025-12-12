@@ -1,23 +1,23 @@
-.notasContainer {
+.containerNotas {
   padding: 16px;
   background-color: #f4f7f9;
   min-height: 100vh;
 }
 
-.pageTitle {
+.tituloPagina {
   font-size: 28px;
   color: #333;
   margin-bottom: 24px;
   text-align: center;
 }
 
-.gradesGrid {
+.gridNotas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.courseCard {
+.cartaoDisciplina {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -25,58 +25,49 @@
   border-left: 5px solid #007bff;
 }
 
-.courseHeader {
+.cabecalhoDisciplina {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.courseHeader h3 {
+.cabecalhoDisciplina h3 {
   font-size: 18px;
   color: #1a1a1a;
+  margin: 0;
 }
 
-.statusBadge {
-  padding: 4px 8px;
-  border-radius: 8px;
-  font-size: 12px;
+.aprovado {
+  color: #28a745;
   font-weight: bold;
-  color: white;
 }
 
-.approved {
-  background-color: #28a745;
+.reprovado {
+  color: #dc3545;
+  font-weight: bold;
 }
 
-.reproved {
-  background-color: #dc3545;
-}
-
-.professorName {
-  font-size: 14px;
-  color: #6c757d;
-  margin-bottom: 15px;
-}
-
-.gradesSummary {
+.resumoNotas {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   padding: 10px 0;
   margin-bottom: 10px;
 }
 
-.gradesSummary h4 {
+.resumoNotas h4 {
   font-size: 16px;
   color: #333;
+  margin: 0;
 }
 
-.gradesList {
+.listaNotas {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.avaliacaoItem {
+.itemAvaliacao {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
@@ -84,32 +75,30 @@
   font-size: 14px;
 }
 
-.gradeValue {
+.valorNota {
   font-weight: bold;
   color: #007bff;
 }
 
 /* TABLET */
-
 @media (min-width: 768px) {
-  .pageTitle {
+  .tituloPagina {
     text-align: left;
   }
 
-  .gradesGrid {
+  .gridNotas {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* DESKTOP */
-
 @media (min-width: 1200px) {
-  .notasContainer {
+  .containerNotas {
     max-width: 1400px;
     margin: 0 auto;
   }
 
-  .gradesGrid {
+  .gridNotas {
     grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -6,10 +6,6 @@ export default function UserManagement(){
 
     const navigate = useNavigate()
 
-    const handleBack = () => {
-        navigate("/gestor")
-    }
-
     const handleEdit = (email) => {
         navigate("/gestor/editar-usuario", {
             state: { emailUsuario: email }
@@ -54,7 +50,6 @@ export default function UserManagement(){
                     </div>
                 </div>
             </div>
-            <Button onClick={handleBack}>Voltar</Button>
         </section>
     )
 }

@@ -102,10 +102,6 @@ export default function UserRegistration(){
         }
     }, [successful])
 
-    const handleBack = () => {
-        navigate("/gestor")
-    }
-
     return(
         <section className={style.container}>
             <form className={style.form} onSubmit={handleSubmit}>
@@ -170,7 +166,6 @@ export default function UserRegistration(){
                 {successful ? <div className={`${style.successful} ${(!isVisibleSuccessful || !successful) ? style["successful-hidden"] : ""}`}>{successful}</div>: ""}
                 <Button type="submit" disabled={loading}>{loading ? "Criando Conta..." : "Criar Conta"}</Button>
             </form>
-            <Button onClick={handleBack}>Voltar</Button> 
         </section>
     )
 }

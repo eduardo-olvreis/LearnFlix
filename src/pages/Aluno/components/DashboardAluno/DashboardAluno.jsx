@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./DashboardAluno.module.css";
 
 const DashboardCard = ({ title, value, unit = "" }) => (
@@ -11,30 +11,70 @@ const DashboardCard = ({ title, value, unit = "" }) => (
   </div>
 );
 
-const DashboardAluno = ({ mediaGeral }) => {
+export default function DashboardAluno() {
   const [avaliacoes, setAvaliacoes] = useState([]);
-  const [concluidas, setConcluidas] = useState([]);
+  const [entregas, setEntregas] = useState([]);
+  const [mediaCalculada, setMediaCalculada] = useState("-"); 
+  const [alunoEmail, setAlunoEmail] = useState("");
 
   useEffect(() => {
+    const userString = localStorage.getItem("currentUser");
+    let emailLogado = "";
+
+    if (userString) {
+      try {
+        const userObj = JSON.parse(userString);
+        emailLogado = userObj.email;
+        setAlunoEmail(emailLogado);
+      } catch (e) {
+        console.error("Erro ao ler usuário", e);
+      }
+    }
+
     const dadosSalvos = localStorage.getItem('avaliacoes');
-    const concluidasSalvas = localStorage.getItem('tarefasConcluidas');
+    const entregasSalvas = localStorage.getItem('entregasDetalhadas'); 
 
     if (dadosSalvos) setAvaliacoes(JSON.parse(dadosSalvos));
-    if (concluidasSalvas) setConcluidas(JSON.parse(concluidasSalvas));
+    if (entregasSalvas) setEntregas(JSON.parse(entregasSalvas));
+
+    if (emailLogado) {
+      const bancoNotas = JSON.parse(localStorage.getItem('bancoNotas') || '[]');
+      
+      const minhasNotas = bancoNotas.filter(n => n.studentEmail === emailLogado);
+
+      if (minhasNotas.length > 0) {
+        const total = minhasNotas.reduce((acc, curr) => acc + Number(curr.valor), 0);
+        const media = total / minhasNotas.length;
+        setMediaCalculada(media.toFixed(1));
+      } else {
+        setMediaCalculada("0.0");
+      }
+    }
+
   }, []);
 
-  const toggleConclusao = (id) => {
-    let novasConcluidas;
-    if (concluidas.includes(id)) {
-      novasConcluidas = concluidas.filter((itemId) => itemId !== id);
+  const toggleConclusao = (atividadeId) => {
+    if (!alunoEmail) return;
+
+    const todasEntregas = JSON.parse(localStorage.getItem('entregasDetalhadas') || '[]');
+    const jaEntregou = todasEntregas.find(e => e.alunoEmail === alunoEmail && e.atividadeId === atividadeId);
+
+    let novaLista;
+    if (jaEntregou) {
+      novaLista = todasEntregas.filter(e => !(e.alunoEmail === alunoEmail && e.atividadeId === atividadeId));
     } else {
-      novasConcluidas = [...concluidas, id];
+      novaLista = [...todasEntregas, { alunoEmail: alunoEmail, atividadeId: atividadeId }];
     }
-    setConcluidas(novasConcluidas);
-    localStorage.setItem('tarefasConcluidas', JSON.stringify(novasConcluidas));
+
+    localStorage.setItem('entregasDetalhadas', JSON.stringify(novaLista));
+    setEntregas(novaLista);
   };
 
-  const pendentes = avaliacoes.filter(a => !concluidas.includes(a.id));
+  const meusIdsConcluidos = entregas
+    .filter(e => e.alunoEmail === alunoEmail)
+    .map(e => e.atividadeId);
+
+  const pendentes = avaliacoes.filter(a => !meusIdsConcluidos.includes(a.id));
   const provasPendentes = pendentes.filter(a => a.tipo === 'prova');
   const trabalhosPendentes = pendentes.filter(a => a.tipo === 'trabalho');
 
@@ -63,7 +103,7 @@ const DashboardAluno = ({ mediaGeral }) => {
       </header>
 
       <section className={styles.statsGrid}>
-        <DashboardCard title="Média Geral" value={mediaGeral} />
+        <DashboardCard title="Média Geral" value={mediaCalculada} />
         <DashboardCard
           title="Tarefas Pendentes"
           value={pendentes.length}
@@ -71,13 +111,13 @@ const DashboardAluno = ({ mediaGeral }) => {
         />
         <DashboardCard 
           title="Tarefas Concluídas" 
-          value={concluidas.length} 
+          value={meusIdsConcluidos.length} 
         />
       </section>
 
       {notificacoesUrgentes.length > 0 && (
         <section className={`${styles.pendingSection} ${styles.urgentSection}`}>
-          <h2 className={styles.urgentTitle}>⚠️ Atenção: Prazos Próximos!</h2>
+          <h2 className={styles.urgentTitle}>Atenção: Prazos Próximos!</h2>
           <div className={styles.pendingList}>
              {notificacoesUrgentes.map(av => (
                <p key={av.id}>
@@ -87,6 +127,7 @@ const DashboardAluno = ({ mediaGeral }) => {
           </div>
         </section>
       )}
+
       <div className={styles.splitGrid}>
         
         {/* Coluna Provas */}
@@ -143,5 +184,3 @@ const DashboardAluno = ({ mediaGeral }) => {
     </div>
   );
 };
-
-export default DashboardAluno;

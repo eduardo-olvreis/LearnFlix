@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
-import styles from "../../../Gestor/components/Home/GestorHome.module.css";
+import styles from "./ProfessorHome.module.css";
 
 export default function ProfessorHome() {
     const navigate = useNavigate()
