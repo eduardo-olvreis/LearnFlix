@@ -1,23 +1,23 @@
 .container {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    min-height: 80vh;        /* Garante que ocupe boa parte da tela */
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
     padding: 20px;
-    background-color: #f5f5f5; /* Fundo cinza claro para destacar o card */
+    background-color: #f5f5f5;
 }
 
 .card {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); /* Sombra consistente */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 450px; /* Largura máxima para não ficar esticado */
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     border: 1px #d1d5db solid;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 
 .header {
@@ -40,6 +40,6 @@
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Um pouco mais de espaço entre os botões */
+    gap: 15px;
     width: 100%;
 }

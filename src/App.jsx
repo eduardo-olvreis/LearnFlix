@@ -10,6 +10,9 @@ import UserManagement from "./pages/Gestor/components/UserManagement/UserManagem
 import UserEdit from "./pages/Gestor/components/UserManagement/UserEdit";
 
 import Professor from "./pages/Professor/Professor";
+import ProfessorHome from "./pages/Professor/components/Home/ProfessorHome";
+import AgendarAvaliacao from "./pages/Professor/components/AgendarAvaliacao/AgendarAvaliacao";
+import LancarNota from "./pages/Professor/components/LancarNota/LancarNota";
 
 import Aluno from "./pages/Aluno/Aluno";
 import DashboardAluno from "./pages/Aluno/components/DashboardAluno/DashboardAluno";
@@ -23,14 +26,24 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/professor" element={<Professor />} />
+
+        {/* Rotas Professor */}
+        <Route path="/professor" element={<Professor />}>
+          <Route index element={<ProfessorHome />} />
+          <Route path="agendar-avaliacao" element={<AgendarAvaliacao />} />
+          <Route path="lancar-nota" element={<LancarNota />} />
+        </Route>
+
+        {/* Rotas Gestor */}
         <Route path="/gestor" element={<Gestor />}>
           <Route index element={<GestorHome />} />
           <Route path="cadastrar-usuario" element={<UserRegistration />} />
           <Route path="gerenciar-usuario" element={<UserManagement />} />
           <Route path="editar-usuario" element={<UserEdit />} />
         </Route>
-        <Route path="/aluno" element={<Aluno name="Eduardo" user="Aluno" />}>
+
+        {/* Rotas Aluno */}
+        <Route path="/aluno" element={<Aluno />}>
           <Route index element={<DashboardAluno />} />
           <Route path="recursos" element={<ListaRecursos />} />
           <Route path="notas" element={<NotasAluno />} />

@@ -25,7 +25,7 @@ export default function Gestor() {
       console.error("Falha ao ler os dados do usuário da sessão:",error)
       navigate("/")
     }
-  })
+  }, [])
 
   return (
     <section>

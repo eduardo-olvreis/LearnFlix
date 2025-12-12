@@ -8,6 +8,12 @@ export default function Professor(){
 
     const [userName, setUserName] = useState("Usuário")
 
+    const professorLinks = [
+        { path: "/professor", label: "Início" },
+        { path: "/professor/agendar-avaliacao", label: "Agendar Avaliações" },
+        { path: "/professor/lancar-nota", label: "Lançar Notas" }
+    ]
+
     useEffect(() => {
         try {
         const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"))
@@ -18,13 +24,14 @@ export default function Professor(){
         console.error("Falha ao ler os dados do usuário da sessão:",error)
         navigate("/")
         }
-    })
+    }, [])
 
     return(
         <section>
             <Header 
                 name={userName} 
-                user={"Professor"}>
+                user={"Professor"}
+                navLinks={professorLinks}>
             </Header>
             <main>
                 <Outlet/>
