@@ -65,7 +65,7 @@
   box-shadow: 0 0 0 3px rgba(9, 147, 235, 0.1);
 }
 
-/* Ajuste para Tablet/Desktop */
+/* Tablet e Desktop */
 @media (min-width: 768px) {
   .selectInput {
     padding: 14px 16px;

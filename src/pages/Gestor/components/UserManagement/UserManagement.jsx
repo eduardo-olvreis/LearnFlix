@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../../../components/Button/Button";
 import styles from "./UserManagement.module.css"
 
 export default function UserManagement(){
@@ -33,7 +32,6 @@ export default function UserManagement(){
     return(
         <section className={styles.container}>
             <div className={styles.containerUsuarios}>
-                {/* Depois tem que criar um componente para renderizar isso e despoluir */}
                 <h2 className={styles.titulo}>Lista de usuários registrados</h2>
                 <div className={styles.usuarios}>
                     <div className={styles.containerCargo}>

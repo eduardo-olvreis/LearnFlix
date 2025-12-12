@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./ListaRecursos.module.css";
 import Input from "../../../../components/Input/Input";
+import Button from "../../../../components/Button/Button"
 
 const API_URL = "https://api.sampleapis.com/codingresources/codingResources";
 
@@ -79,15 +80,15 @@ function ListaRecursos() {
                     <strong>Tags:</strong> {recurso.tags.join(", ")}
                   </p>
                 )}
-
-              <a
-                href={recurso.url}
-                className={styles.resourceLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Acessar Recurso
-              </a>
+              <Button className={styles.resourceLink}>
+                <a
+                  href={recurso.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Acessar Recurso
+                </a>
+              </Button>
             </li>
           ))}
         </ul>
